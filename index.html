@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Deutsch Lückentext Übung</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: rgb(236, 232, 236);
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.text-block {
+  background: wheat;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.question {
+  margin-top: 15px;
+}
+
+.options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: #6de7f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.option:hover {
+  background: #4db8d8;
+}
+
+.option.selected {
+  background: #4db8d8;
+  background: #dcdcdc;
+}
+
+.correct {
+  background: #a7f3a1 !important;
+}
+
+.wrong {
+  background: #f7a1a1 !important;
+}
+
+button {
+  margin-top: 15px;
+  background: #2b77e7;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1f5dbd;
+}
+
+#total-score {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 18px;
+}
+</style>
+</head>
+<body>
+
+<div id="quiz-container"></div>
+<div id="total-score"></div>
+
+<script>
+const quizData = [
+{
+text: `Sehr geehrter Herr Dr. Moosberger,
+mit _______(1) Interesse habe ich Ihr Stellenangebot in der Essener Zeitung gelesen, _______(2) Sie
+eine Teilzeit-Mitarbeiterin in Ihrem Antiquitätengeschäft suchen. Es reizt mich eine
+verantwortungsvolle Aufgabe in einem _______(3) renommierten Geschäft wie dem Ihrigen
+übernehmen _______(4).
+Nach dem Abitur am Kreisgymnasium in Velbert _______(5) ich eine dreijährige Schreinerlehre
+bei der Firma Eichelbohrer & Co und besuchte die Kreisberufsschule in Velbert. Nach erfolgreichem
+Abschluss meiner Berufsausbildung arbeitete ich _______(6) bei Stutz & Partner - Möbeldesign in
+Düsseldorf. Danach schrieb ich mich an der Fachhochschule Köln im Fachbereich Möbeldesign ein
+und _______(7) meine Liebe zu antiquarischen Möbelstücken.
+Meine Spezialität ist das stilgenaue Restaurieren und Aufarbeiten antiquarischer Möbel, insbesondere
+aus dem Biedermeier und dem Jugendstil.
+_______(8) meiner Berufstätigkeit und meines Studiums
+konnte ich umfangreiche Kenntnisse erwerben, was Möbelstile und die Herstellungskunst in den
+verschiedensten Epochen _______(9) in Nord- _______(9) in Südeuropa angeht.
+Mein Studium lässt mir genügend Zeit, eine Teilzeitstelle zu übernehmen, die darüber hinaus meinen
+beruflichen Fähigkeiten und Neigungen entspricht. Aus diesem Grund habe ich mich entschlossen,
+_______(10), und bewerbe mich um die von Ihnen angebotene Teilzeitstelle.`,
+questions: [
+{label:"1", options:["allergrößte","allergrößtem","allergrößten"], answer:1},
+{label:"2", options:["an","auf","in"], answer:2},
+{label:"2معدل", options:["an dem","auf dem","in dem"], answer:2},
+{label:"3", options:["als","so","wie"], answer:1},
+{label:"3معدل", options:["Ihrem","Ihren","Ihres"], answer:1},
+{label:"4", options:["können","könnte","zu können"], answer:2},
+{label:"5", options:["begann","beging","belief"], answer:0},
+{label:"5معدل", options:["an","bei","mit"], answer:1},
+{label:"6", options:["durch ein Jahr","ein Jahr lang","seit einem Jahr"], answer:1},
+{label:"7", options:["entdeckte","erfand","merkte"], answer:0},
+{label:"8", options:["dabei","inzwischen","während"], answer:2},
+{label:"8معدل", options:["das","was","welches"], answer:1},
+{label:"9", options:["sowohl---als auch","teils---teils","weder---noch"], answer:0},
+{label:"10", options:["auf Ihre Anzeige antworten","auf Ihre Anzeige zu antworten","um auf Ihre Anzeige zu antworten"], answer:1}
+]
+},
+{
+    text: `Lieber Goronsksa,
+vielen Dank für Ihre Anfrage vom 12. September bezüglich unserer Sprachurlaube in Deutschland und
+Österreich. Unsere Organisation unterhält insgesamt zehn Schulen, acht _______(1) in Deutschland und zwei
+in Österreich, an _______(2) Sie ausnahmslos sowohl Ihr Deutsch verbessern als auch an einem
+anspruchsvollen Kultur- und Freizeitprogramm teilnehmen können.
+Der Sprachunterricht findet in der Regel _______(3) fünf Tagen pro Woche statt, jeweils in der Zeit von 9 bis
+13 und von 15 bis 17 Uhr. _______(4) ist kein Nachmittagsunterricht.
+Sie können jedoch auch vier, sechs oder acht Wochen bleiben. Zu Beginn _______(5) wird ein Einstufungstest
+durchgeführt, mit _______(6) Hilfe wir herausfinden, welcher Kurs für Sie der geeignete ist. Nach Abschluss
+Ihres Aufenthaltes erhalten Sie eine Teilnahmebescheinigung. Selbstverständlich können Sie bei uns Tests auf
+allen Niveaustufen von A1 bis C1 ablegen und erhalten, _______(7) Sie den Test bestehen, ein international
+anerkanntes Zertifikat.
+Hinsichtlich unseres Kultur- und Freizeitprogramms gibt es verschiedene Wahlmöglichkeiten, die _______(8)
+vor Ort angeboten werden. Dazu zählen Ausflüge in die nähere Umgebung, Museums- und Theaterbesuche
+und vieles mehr.
+Was die Übernachtung am Kursort angeht, können Sie zwischen einer Unterbringung in einer und der
+Unterkunft in einfachen Hotels wählen. Im Unterkunftspreis _______(9) jeweils Halbpension eingeschlossen,
+das heißt Frühstück und Mittagessen. Bitte teilen Sie uns mit, wenn Sie bestimmte Lebensmittel ausschließen,
+z. B. vegetarisch essen oder _______(10).
+Alles Weitere entnehmen Sie bitte dem beiliegenden Katalog. Bei weiteren Fragen sind wir gerne für Sie da.
+Mit freundlichen Grüßen
+Natalie Spengler`,
+    questions: [
+       {label:"1", options:["dabei","daraus","davon"], answer:2},
+        {label:"2", options:["denen","die","den"], answer:0},
+        {label:"3", options:["an","durch","in"], answer:0},
+        {label:"4", options:["Jeder Mittwoch","Mittwochs","Zum Mittwoch"], answer:1},
+        {label:"5", options:["jedem Kurs","jeden Kurs","jedes Kurses"], answer:2},
+       {label:"6", options:["der","deren","dessen"], answer:2},
+        {label:"7", options:["obwohl","wenn","wobei"], answer:1},
+        {label:"8", options:["Ihnen","Sie","Euch"], answer:0},
+       {label:"9", options:["hat","ist","wird"], answer:1},
+        {label:"10", options:["eine Diät halten müssen","müssen eine Diät halten","müssen halten eine Diät"], answer:0}
+    ]
+},
+{
+        text: `Lieber Thomas,
+ich muss dir unbedingt etwas erzählen: Ich bin heute das erste Mal in meinem Leben Ski
+gefahren,_______(1) ich mir das bisher nie zugetraut hatte. Meine Freundin Lisa hat mich eingeladen,
+einige Tage mit ihr und ihren Eltern in den Bergen zu verbringen. Und bevor ich ankam,_______ (2)
+sie schon einen Individuellen Skikurs für mich gebucht! Du kannst dir vorstellen, wie mich das
+Überrascht hat! Ich
+_______(3) es mir schon anders überlegen, aber Lisa wollte nichts
+_______(4)
+hören.
+Heute Morgen ging es dann los.
+_______(5) war ich ziemlich aufgeregt,(25.) aber ich habe mich auch
+unheimlich gefreut. Mit der Skilehrerin habe ich mich gleich gut verstanden. Sie hat mich abgeholt und
+mir
+_______(6) geholfen, im Sportgeschäft Schuhe, Skier, Stöcke und einen Helm für
+mich
+_______(7). Dann hat mir die Skilehrerin einige
+_______(8) Dinge erklärt.
+Ich war anfangs sehr unsicher, mit der Zeit ließ das aber nach. Die Kinder im Zwergerlkurs
+scheinen
+_______(9) im Gegensatz zu mir überhaupt keine Angst zu haben. Das Schlimmste am
+ersten Tag war der Schlepplift. Erst habe ich den Lift einige Male verpasst, dann bin ich hingefallen.
+Irgendwie habe ich es dann doch noch geschafft. Und zum Schluss bin ich mit der Lehrerin sogar eine
+leichte Piste runtergefahren.
+Morgen habe ich wieder zwei Stunden. Ich habe jetzt schon Muskelkater und mir tut alles weh! Ich
+weiß gar nicht, _______(10) ich das schaffen soll. Ich werde dich über meine Fortschritte auf dem
+Laufenden halten :)
+Bis bald und liebe Grüße
+Samira`,
+        questions: [
+            {label:"1", options:["obwohl","trotz","während"], answer:1},
+            {label:"2", options:["hat","hatte","hätte"], answer:2},
+            {label:"3", options:["konnte","sollte","wollte"], answer:1},
+            {label:"4", options:["dafür","damit","davon"], answer:2},
+            {label:"5", options:["Einerseite ... andereseites","weder ... noch","zwar ... aber"], answer:0},
+            {label:"6", options:["dabei","davon","dazu"], answer:1},
+            {label:"7", options:["aussuchen","ausgesucht","auszusuchen"], answer:0},
+            {label:"8", options:["grundlegende","grundlegenden","grundlegender"], answer:2},
+            {label:"9", options:["am","im","zum"], answer:0},
+            {label:"10", options:["dass","ob","wie"], answer:1}
+        ]
+    },
+    {
+        text: `Liebe Corinna,
+es tut mir wirklich Leid, _______(1) ich dir seit Ewigkeiten nicht mehr geschrieben habe. Aber du weißt ja:
+Ich habe seit drei Monaten eine neue Arbeit. Und da hatte ich gar keine Zeit, mich mit etwas Anderem
+zu
+_______ (2) als mit der neuen Arbeit.
+Es hat mich wirklich überrascht, wie schnell ich nach dem Abschluss meiner Ausbildung etwas gefunden
+habe. Dabei haben alle immer nur gesagt: "Gärtner? Die gibt es
+_______(3) wie Sand am Meer, wie willst
+du da so schnell einen Job finden?"
+.
+Ich arbeite jetzt in einer Baumschule. Wir kultivieren und verkaufen Obstbäume, _______(4) an die
+Obstbauern der näheren Umgebung. Die Arbeit macht mir großen Spaß, es ist andererseits aber ein bisschen
+anstrengend, acht Stunden am Tag körperlich -
+_______(5) im Freien - zu arbeiten. Und leider
+_______(6)
+ich fast eine dreiviertel Stunde mit dem Zug fahren, um an meinen Arbeitsplatz zu kommen.
+Wenn ich dann am Abend nach Hause komme, bin ich so müde, dass ich eigentlich nur noch fernsehen oder
+Musik hören kann. Ich habe im Moment nur
+_______(7) Lust, etwas zu unternehmen, aber ich bin mir
+sicher: Sie
+_______(8) wieder.
+Wie geht es dir denn? Du müsstest doch jetzt auch bald mit deiner Ausbildung fertig sein, oder? Hast du
+schon damit angefangen, dich bei verschiedenen Arbeitgebern zu bewerben? Oder
+_______(9) du dir noch
+ein bisschen Zeit damit? Ich würde dir in jedem Fall raten: Fang so früh wie
+_______(10) mit den
+Bewerbungen an, je früher, desto besser. Du weißt ja, was unser Klassenlehrer in der Realschule immer
+gesagt hat: Gut Ding will Weile haben. So, jetzt muss ich aufhören und ins Bett gehen, damit ich morgen
+wieder fit bin. Mach's gut, bis bald,
+dein
+Richard`,
+        questions: [
+            {label:"1", options:["a) dass","b) ob","c) weil"], answer:0},
+            {label:"2", options:["a) bedienen","b) beeilen","c) beschäftigen"], answer:2},
+            {label:"3", options:["a) bloß","b) doch","c) nur"], answer:1},
+            {label:"4", options:["a) außerdem","b) insbesondere","c) jedoch"], answer:1},
+            {label:"5", options:["a) übermächtig","b) übermäßig","c) überwiegend"], answer:2},
+            {label:"6", options:["a) darf","b) muss","c) soll"], answer:0},
+            {label:"6معدل", options:["a) fast","b) nahe","c) ziemlich"], answer:0},
+            {label:"7", options:["a) gering","b) knapp","c) wenig"], answer:2},
+            {label:"8", options:["a) kommt","b) läuft","c) steht"], answer:0},
+            {label:"9", options:["a) brauchst","b) hast","c) lässt"], answer:2},
+            {label:"10", options:["a) kürzlich","b) möglich","c) üblich"], answer:1}
+        ]
+    },
+    {
+        text: `Liebes Julian,
+Wie geht es dir? Ich hoffe, du hattest eine schöne Reise und
+_______(1) dich gut erholen.
+Ich
+_______ (2) ja auch gerne mal wieder ans Meer fahren, aber im Moment habe ich leider keine
+Zeit
+_______(3) Urlaub. Wie du dir bestimmt vorstellen kannst, war ich in den letzten Wochen vor
+allem mit meinem Umzug beschäftigt. Du weißt ja, dass ich zuerst ziemlich skeptisch war, Nach
+so
+_______(4) Jahren in Berlin konnte ich mir gar nicht mehr vorstellen, mich in einer kleinen
+Stadt wie Bamberg niederzulassen. Bamberg hat nur rund 77.000 Einwohner, aber langweilig ist es
+hier trotzdem nicht, wie ich inzwischen festgestellt habe. Mittlerweile fühle ich mich hier sogar
+richtig wohl.
+Die Stadt hat wirklich viel zu bieten. Es gibt jahrhundertealte Sehenswürdigkeiten in Hülle und
+Fülle, und in der Altstadt
+_______(5) mir besonders die schönen Fachwerkhäuser, die
+überwiegend aus dem Mittelalter stammen. Ich gehe oft durch die Fußgängerzone,_______(6)
+dort gibt es viele kleine Läden, Cafés und Restaurants mit typisch fränkischen Spezialitäten. Ich
+glaube, dir würde es hier auch gefallen.
+_______(7) du willst, zeige ich dir gerne mal die Stadt.
+Hättest du vielleicht Lust, mich im nächsten Monat zu besuchen?
+_______(8) ist bei mir wach der
+Umzugsstress vorbei. Im Moment steht noch eine große Anzahl nicht
+_______(9) Kisten in
+meinem Wohnzimmer, die ausgepackt werden müssen. Mit meiner neuen Wohnung habe ich
+übrigens auch Glück gehabt,_______(10) sie geräumig und zentral gelegen ist. Wir können ja mal
+telefonieren, dann erzähle ich dir mehr.
+Liebe Grüße,
+Anna`,
+        questions: [
+            {label:"1", options:["konntest","wolltest","solltest"], answer:0},
+            {label:"2", options:["würde","könnte","möchte"], answer:0},
+            {label:"3", options:["für","in","auf"], answer:0},
+            {label:"4", options:["vielen","einigen","etlichen"], answer:0},
+            {label:"5", options:["gefallen","befallen","auffallen"], answer:0},
+            {label:"6", options:["denn","weil","darum"], answer:0},
+            {label:"7", options:["Ob","Falls","Wenn"], answer:2},
+            {label:"8", options:["Sobald","Dann","Vielleicht"], answer:1},
+            {label:"9", options:["Geöffnet","Ausgeräumt","eingepackt"], answer:1},
+            {label:"10", options:["Sodass","da","Weil"], answer:2}
+        ]
+    },
+    {
+    text: `Liebe Agnieszka,
+jetzt ist es schon bald ein halbes Jahr
+_______(1), dass ich dir das letzte Mal geschrieben habe. Bitte
+denke jetzt nicht, dass ich dich vergessen habe. Aber, wie du ja schon weißt, stehe ich vor der
+Abschlussprüfung in Deutsch und das bedeutet jede Menge Arbeit und Stress.
+Stell dir vor, ausgerechnet jetzt, nur zwei Wochen vor der Prüfung, ist unsere Lehrerin, Frau Reuter,
+_______ (2). Sie liegt sogar im Krankenhaus und kommt erst wieder zurück,_______(3) unsere
+Prufung schon langst vorbei ist. Ihre Vertretung, Frau Eichhorn, ist
+_______(4) sehr nett,_______(4)
+sie hat gerade erst mit dem Unterrichten angefangen und noch keine Erfahrung. Das macht uns alle ein
+bisschen unsicher. Aber in zwei Wochen ist hoffentlich alles geschafft. Und dann
+_______(5) ich alle
+Bucher und Hefte in die Ecke legen und erst einmal ein paar Tage gar nichts tun.
+_______(6) freue ich
+mich schon riesig. Wenn du Zeit und Lust hast, kannst du mich doch besuchen kommen und wir können
+zusammen etwas unternehmen. Wir wollten doch schon lange Bad Homburg besuchen und im Taunus
+wandern. Was hältst du
+_______(7)? Was macht deine Au-pair-Familie? Musst du immer noch so viel
+Hausarbeit machen? Hören "deine" Kinder auf dich oder tanzen sie
+_______(8) noch immer auf der
+Nase herum, wie du in deinem letzten Brief geschrieben hast? Es ist bestimmt nicht so leicht, einen
+zweijährigen Jungen und ein vierjahriges Madchen den ganzen Tag_______(9). Aber ich kenne dich:
+Du hast gute Ideen und bestimmt hast du schon einen Weg gefunden,_______(10) du mit den Kindern
+zurechtkommst.
+So, jetzt muss ich mich wieder an meine Prüfungsvorbereitung machen, sonst wird mir die Zeit
+zu knapp. Ich grüße dich ganz herzlich und wünsche dir alles Gute.
+Bis bald
+Deine Louise`,
+    questions: [
+        {label:"1", options:["her","hin","vorbei"], answer:0},
+        {label:"2", options:["erkrankt","gekränkt","kränklich"], answer:0},
+        {label:"3", options:["als","da","wenn"], answer:2},
+        {label:"4", options:["nicht nur ... sondern","teils ... teils","zwar ... aber"], answer:2},
+        {label:"5", options:["werde","wollte","würde"], answer:0},
+        {label:"6", options:["Dafür","Danach","Darauf"], answer:2},
+        {label:"7", options:["darüber","davon","dazu"], answer:1},
+        {label:"8", options:["dich","dir","sich"], answer:1},
+        {label:"9", options:["beschaftigen lassen","beschäftigt zu sein","zu beschäftigen"], answer:2},
+        {label:"10", options:["weshalb","wie","wo"], answer:1}
+    ]
+},
+{
+    text: `Hallo Judith, oder lina,
+wir habe uns ja lange nicht gesehen. Ich hoffe, du hattest einen richtig schönen Urlaub in
+Kroatien! Danke auch für deine Urlaubskartei! Die hat mich echt neidisch gemacht; ich habe ja
+erst im September Urlaub.
+_______(1) rufst du heute schon deine E-Mails ab and liest diese Nachricht von mir!
+Wir, als das gesamte Team, möchten
+_______ (2) unserer Kollegin Elena zu ihrer Pensionierung
+gemeinsam etwas zum Abschied schenken. Ihre Abschiedsfeier ist ja
+_______(3) übermorgen abends
+im großen Konferenzraum unserer Firma. Bist du
+_______(4) einverstanden, dass wir ihr zusammen
+einen Gutschein und einen Blumenstrauß schenken? Jeder zahlt etwas 10 € dazu. Ich denke, das ist
+angemessen. Du erinnerst dich:
+_______(5) wir das letzte Mal gesammelt hatten,
+gab es Beschwerden wegen der Höhe des Betrags. Aber möglicherweise hast du eine bessere
+Idee.
+Michael und ich gehen dann nachmittags
+_______(6) in der Stadt einkaufen. Die Glückwunschkarte
+für Elena könntest du dann übermorgen noch
+_______(7) vor der Feier unterschreiben. Wir treffen
+uns ja alle vorher und gehen gemeinsam hin.
+In der Firma war heute nicht viel los. Aber in den letzten 14 Tagen hatten viele Kollegen
+Urlaub,_______(8) ich sehr viel zu tun hatte. Es gibt übrigens auch
+_______(9) neue Entwicklungen
+in der Firma, von denen ich dir dann übermorgen erzählen kann.
+Wahrscheinlich bist du nach der langen Fahrt sehr müde. Schlaf dich morgen gut aus; wir sehen uns
+dann auf Elenas Feier! Ich wünsche dir heute einen
+_______(10) Tag...
+Liebe Grüße,
+Cosima`,
+    questions: [
+        {label:"1", options:["Zuversichtlich","Möglichst","Höffentlich"], answer:2},
+        {label:"2", options:["vermutlich","nämlich","bestimmt"], answer:1},
+        {label:"3", options:["schon","fast","beinahe"], answer:0},
+        {label:"4", options:["damit","dafür","dadurch"], answer:0},
+        {label:"5", options:["Wenn","Wann","Als"], answer:2},
+        {label:"6", options:["zueinander","voneinander","miteinander"], answer:2},
+        {label:"7", options:["vor Kurzem","kürzlich","kurz"], answer:2},
+        {label:"8", options:["weshalb","insofern","deshalb"], answer:0},
+        {label:"9", options:["vollkommen","sämtlich","erschöpfend"], answer:0},
+        {label:"10", options:["passenden","bequemen","angenehmen"], answer:2}
+    ]
+},
+{
+    text: `Liebe Meike,
+vielen Dank für deine Mail! Es freut mich, dass du dich in Bremen wohlfühlst und mit deiner
+_______(1)
+Arbeit zufrieden bist. Auch ich habe eine Menge zu erzählen. Du weißt ja, wie unzufrieden ich in letzter
+Zeit oft war.
+_______ (2) ich einen neuen Chef habe, hat sich in viel verändert: Die Arbeitsatmosphäre ist
+schlechter geworden und ich muss viele Überstunden machen. Daher habe ich oft
+_______(3)
+nachgedacht, ob ein beruflicher. Neuanfang das Richtige für mich wäre.
+Nun, inzwischen habe ich einen ersten Schritt unternommen: Ich habe
+_______(4) an einer
+Fernuniversität für ein Psychologie-Studium eingeschrieben.
+_______(5) ich zuerst einige Bedenken
+hatte, bin ich nun sehr froh über meine Entscheidung. Anfangs war ich mir nicht sicher, ob ich
+nebenberuflich ein Studium schaffen
+_______(6). Schließlich muss ich ja auch noch meinen
+Lebensunterhalt verdienen. Außerdem hatte ich Angst, dass mir das Lernen nicht mehr so leichtfallen
+würde
+_______(7) früher.
+Das Studium macht mir wirklich Spaß. Allerdings habe ich es unterschätzt, wie viel Zeit die
+Vorbereitungen in Anspruch
+_______(8). Manchmal fehlt mir bei dem Fernstudium auch der direkte
+Austausch mit Kommilitonen, denn den Lehrstoff arbeite ich alleine zuhause durch.
+Für
+_______(9) ist es aber eine große Hilfe, dass die Fernuniversität Chatgruppen anbietet,
+in
+_______(10) man rund um die Uhr Fragen stellen kann. Ich bin jedenfalls gespannt, wie es weitergeht.
+Wie wäre es, wenn wir demnächst mal wieder telefonieren? Ich würde mich freuen, bald von dir zu hören.
+Herzliche Grüße
+Elise`,
+    questions: [
+        {label:"1", options:["neue","neuen","neuer"], answer:1},
+        {label:"2", options:["Seit","Sobald","Solange"], answer:0},
+        {label:"3", options:["daran","darauf","darüber"], answer:2},
+        {label:"4", options:["es","mich","mir"], answer:1},
+        {label:"5", options:["Damit","Obwohl","Wenn"], answer:1},
+        {label:"6", options:["dürfte","könnte","müsste"], answer:1},
+        {label:"7", options:["als","nach","wie"], answer:2},
+        {label:"8", options:["nahmen","nehmen","nimmt"], answer:1},
+        {label:"9", options:["mein","mich","mir"], answer:1},
+        {label:"10", options:["denen","der","die"], answer:0}
+    ]
+},
+{
+    text: `Lieber Justus, oder Juhannas
+vielen Dank für deine Urlaubskarte, (1) die ich mich wirklich sehr gefreut habe! Ich
+wusste (2) nicht, dass ihr gerne wandern geht. Oder habt ihr das jetzt zum ersten Mal
+gemacht?
+Als Kind war ich mit meinen Eltern mal wandern, aber mir hat das damals nicht (3)
+gefallen. Ich war auch noch klein und hatte keine Lust, so lange zu laufen.
+Heute fahre ich lieber an den Strand und mache einen schönen Badeurlaub. Den ganzen Tag
+lesen, in der Sonne liegen, ab und zu mal ins Wasser gehen - (4) habe ich schon im
+Alltag genug Stress.Dabei fällt mir ein: Wie ist eigentlich deine neue Stelle? Du arbeitest doch
+jetzt in dieser internationalen Baufirma, oder? Bist du jetzt schneller im Büro als früher oder
+ist die Firma sogar noch weiter ( 5 ) als deine alte? Du musstest ja immer ziemlich lange
+fahren, daran erinnere ich mich noch gut!
+Ich denke im Moment auch darüber nach, die Stelle zu (6). Mein Chef und meine
+Kollegen sind zwar total nett und die Bezahlung ist auch gut, aber ich mache fast jeden Tag
+das Gleiche - und das jetzt schon seit über zehn Jahren. Ehrlich (7) langweile ich mich in den
+letzten Monaten immer häufiger und würde gerne noch mal etwas Neues ausprobieren.
+Deshalb mache ich ab dem (8) Monat erst mal eine Weiterbildung, sonst hätte ich wohl nicht
+so gute Chancen, eine neue Stelle zu bekommen. Schließlich wird es auch immer schwieriger,
+(9) älter man ist. Die meisten Arbeitgeber wollen doch lieber jüngere Angestellte. Wie (10) es,
+wenn wir uns demnächst treffen würden? Wir könnten in diesem neuen Restaurant in der
+Innenstadt essen gehen. Melde dich doch einfach mal wieder!`,
+    questions: [
+        {label:"1", options:["an","für","über"], answer:2},
+        {label:"2", options:["daher","gar","sicher"], answer:1},
+        {label:"3", options:["besonders","einfach","kaum"], answer:0},
+        {label:"4", options:["allerdings","außerdem","schließlich"], answer:2},
+        {label:"5", options:["abgerückt","entfernt"], answer:1},
+        {label:"6", options:["ändern","verwechseln","wechselten"], answer:2},
+        {label:"7", options:["gesagt","sagend","zu sagen"], answer:0},
+        {label:"8", options:["kommende","kommendem","kommenden"], answer:2},
+        {label:"9", options:["als","je","weil"], answer:1},
+        {label:"10", options:["ist","war","wäre"], answer:2}
+    ]
+},
+{
+    text: `Hallo Maria
+Bevor Wieder der Arbeitsalltag beginnt. schicke ich dir (1) rasch einige Zeilen
+um dir von unserem Wochenende zu erzählen. Es ist so schade, dass du (2) deiner Grippe
+nicht dabei sein konntest! Wi r haben dich alle sehr vermisst.
+(3) auf Mikro sind Alle mit dem Zug angereist und wir haben uns schon am Bahnhof
+getroffen. Nachdem wir unser Gepäck abgestellt (4) . haben wir gleich einen Rundgang
+durch den ort gemacht . Lilo wusste  viel Interessantes zu erzählen .Sie lebt ja schon einige Jahre dort und hat sich (5) ausgezeichnete Fremdenführerin erwiesen. Besonders
+beeindruckt hat uns der Wunderschöne Park, in dem gerade die Rhododendren blühten.
+Eine Wahre Pracht. Das hätte dir auch gefallen! später sind wir zum Amseisee gewandert, den
+man in kurzer Zeit vom ort aus erreicht. Dort haben wir eine Bootsfahrt über den See
+gemacht. vom Boot aus hat man einen Wunderbaren Blick auf die beeindruckende
+Felsenlandschaft. Am Abend stand dann die
+Felsentbühne (6) dem Programm. Die Wanderung am nächsten Tag war (7) schön
+anstrengend. aber Wunderbar . (8) alle ziemlich erschöpft waren. haben wir nach dem
+Abendessen noch lange zusammen gegessen. Und über alte Zeiten geplaudert. Am nächsten
+morgen n a c h unserem gemeinsam früschtück waren uns einig, dass wir bald wieder
+zusammen einen Ausflug machen(9). Und nächste Mal musst d u unbedingt dabei sein. Im
+Anhang schicke ich dir einige. Wie du siehst, war unser treffen
+wirklich lustig !. Ich hoffe , dass es dir (10) schon wieder besser geht.`,
+    questions: [
+        {label:"1", options:["momentan","noch","weiterhin"], answer:1},
+        {label:"2", options:["deswegen","wegen","weil"], answer:1},
+        {label:"3", options:["abgesehen","äußer","bis"], answer:2},
+        {label:"4", options:["haben","hatten","hätten"], answer:1},
+        {label:"5", options:["als","für","zur"], answer:0},
+        {label:"6", options:["auf","in","zu"], answer:0},
+        {label:"7", options:["absolut","ganz","inzwischen"], answer:1},
+        {label:"8", options:["obwohl","trotzdem","ungeachtet"], answer:0},
+        {label:"9", options:["dürfen","konnten","sollten"], answer:2},
+        {label:"10", options:["inzwischen","während","zwischen"], answer:0}
+    ]
+},
+{
+    text: `Liebe Autorinnen und Autoren,
+Weihnachten ist nicht mehr weit, und bevor wir uns alle in die wohlverdienten Feiertage
+verabschieden, möchte ich euch noch einmal an den Redaktionsschluss für unsere Vereinszeitung erinnern, den wir für den 10. Januar festgelegt haben.1…ihr alle wisst, kann Claudia,
+unsere fleißige Layouterin, sich erst dann an die Arbeit machen, wenn alle Texte und Bilder 2….. Die fertige Datei muss bis spätestens 22. Januar in der Druckerei sein, damit das
+Heft pünktlich zum 1. Februar fertig sein kann. Ein gutes Layout ist auch 3……Interesse
+der Autorinnen und Autoren. Ist es schlecht, schenkt man dem Artikel automatisch weniger
+Beachtung. Liefert also bitte eure Beiträge rechtzeitig 4….. Für die Bildbearbeitung ist wie immer Florian zuständig. Bitte die Bilder im TIF- oder im
+JPG-Format liefern und bitte den Bildnachweis anführen, wenn die Bilder nicht von euch selbst
+stammen. Für eure eigenen Bilder liegt das Copyright natürlich 5….. euch. Leider sind die
+Verkaufszahlen unserer Vereinszeitung im letzten Jahr 6…… zurückgegangen. Deshalb
+möchten wir euch alle noch einmal herzlich 7….. bitten, nur Themen zu wählen, die unsere
+Vereinsmitglieder betreffen und sie auch wirklich 8……Das heißt nicht,……9man
+große Themen wie Politik oder Gesellschaft nicht behandeln kann, aber sie sollten
+leserfreundlich verpackt sein.
+Wir verstehen uns ausdrücklich 10……unabhängige Zeitung und möchten uns keinen
+Maulkorb umhängen lassen. Trotzdem sollten die Beiträge im Rahmen sachlicher
+Meinungsäußerungen bleiben. In diesem Sinne freut sich die Redaktion auf zahlreiche Artikel!`,
+    questions: [
+        {label:"1", options:["Wie","Was","Wann"], answer:0},
+        {label:"2", options:["vorliegen","unterliegen","liegen lassen"], answer:0},
+        {label:"3", options:["von","ohne","im"], answer:2},
+        {label:"4", options:["zu","ein","ab"], answer:0},
+        {label:"5", options:["mit","für","bei"], answer:2},
+        {label:"6", options:["unerschütterlich","stark","fest"], answer:1},
+        {label:"7", options:["deswegen","darum","dafür"], answer:1},
+        {label:"8", options:["besprechen","aussprechen","ansprechen"], answer:2},
+        {label:"9", options:["ob","dass","damit"], answer:1},
+        {label:"10", options:["sowie","als ob","als"], answer:2}
+    ]
+},
+{
+    "text": "Liebe Familie Geissler, oder Dippold,\nvielen Dank für Ihre Antwort (1) meine Bewerbung als Au-pair-Mädchen. Danke schön auch für die Fotos von den Kindern. Ich bin schon sehr gespannt und freue mich sehr Ihre Familie im September kennenzulernen!\nIm Juni schließe ich meine Schulausbildung (2) und möchte auch noch mein Deutsch (3) verbessern. Dafür werde ich im Sommer noch einen Sprachkurs an einer Sommerschule in meiner Heimat (4). Anschließend fahre ich mit meiner Familie für drei Wochen in Urlaub ans Meer. Ich habe noch eine Frage (5) Sie. Sie schreiben, dass Sie für die Weihnachtsferien einen Skiurlaub planen, bei dem ich mitfahren kann, wenn ich möchte. Ich habe aber keine Ski und Skibekleidung. Kann ich mir diese Sachen bei (6) ausleihen? In meiner Heimat werde ich sie kaum jemals wieder brauchen. Aber ich bin immer offen für Neues und möchte das Skilaufen gern einmal ausprobieren. Danke schön, (7) Sie mich am Flughafen abholen kommen. Ich habe meinen Flug nach Frankfurt (8) gebucht. Am 2.9. werde ich sehr früh in Frankfurt landen, nämlich um 5:15 Uhr. Ich schlage (9), dass wir uns erst gegen 7:30 Uhr in einem Café treffen. Vielleicht komme ich ja mit Verspätung oder muss länger auf mein Gepäck warten. Dann müssen Sie nicht so früh da sein. Bitte schreiben Sie mir, wenn Sie noch etwas über mich wissen möchten! Ich schicke einige Fotos mit der Mail, damit die Kinder schon ein bisschen (10) von mir sehen.",
+    "questions": [
+        {"label":"1", "options":["wegen","von","auf"], "answer":2},
+        {"label":"2", "options":["zu","aus","ab"], "answer":2},
+        {"label":"3", "options":["kaum","fast","ein bisschen"], "answer":2},
+        {"label":"4", "options":["unterrichten","machen","lernen"], "answer":1},
+        {"label":"5", "options":["über","für","an"], "answer":2},
+        {"label":"6", "options":["irgendwo","irgendjemandem","irgendetwas"], "answer":1},
+        {"label":"7", "options":["falls","dass","dafür"], "answer":1},
+        {"label":"8", "options":["schon","noch","bevor"], "answer":0},
+        {"label":"9", "options":["zu","für","nach"], "answer":1},
+        {"label":"10", "options":["weniger","viel","mehr"], "answer":2}
+    ]
+},
+{
+    "text": "Hallo Ferdinand, oder Hallo Phillp, oder Hallo Christopher,\nnun habe ich mich schon so lange nicht bei dir gemeldet - das tut mir wirklich leid! Ich hatte in den vergangenen Monaten viel Stress, weil ich ja nun studiere und nebenbei noch arbeiten muss, (1) meine Miete und alles andere bezahlen zu können. Zum Glück macht mir mein Nebenjob wenigstens Spaß. Ich weiß nicht, (2) ich das sonst durchhalten würde. Vielleicht habe ich dir schon erzählt, dass ich abends und am Wochenende in einer Kneipe in der Küche helfe. Das ist zwar oft sehr anstrengend, (3) andererseits ist dauernd was los, es wird nicht langweilig, und meine Kollegen sind total nett. Erinnerst du dich noch an unsere Zeit in der Grundschule? Mit acht Jahren wollte ich ja (4) Kellnerin werden, weil man da Trinkgeld bekommt. Naja, jetzt bin ich in der Küche gelandet, knapp daneben ist auch vorbei ;) Was macht denn deine Ausbildung? Wenn ich (5) nicht täusche, bist du ja in einem halben Jahr schon fertig, oder? Das ist ja nicht mehr lang! Neulich habe ich übrigens Tina und Kevin hier in der Nähe der Uni getroffen - die waren ja schon ein Paar, (6) wir noch in der Schule gegangen sind, und jetzt will sie tatsächlich verheiratet! Wie sehen denn deine Pläne für die (7) Wochenenden aus? Wir könnten uns ja vielleicht mal wieder treffen und in Ruhe quatschen - hättest du Lust (8)? In meiner Straße hat vor einem Monat ein nettes kleines Café aufgemacht, die haben nicht nur sehr leckere Kuchen, (9) auch einige kleine Gerichte zu wirklich günstigen Preisen. Wäre das was (10) dich? Mail wir doch einfach, wenn du magst, ich würde mich freuen.",
+    "questions": [
+        {"label":"1", "options":["damit","für","um"], "answer":2},
+        {"label":"2", "options":["wenn","wie","wo"], "answer":1},
+        {"label":"3", "options":["damit","denn","doch"], "answer":2},
+        {"label":"4", "options":["bestimmt","unbedingt","völlig"], "answer":1},
+        {"label":"5", "options":["dich","mich","sich"], "answer":1},
+        {"label":"6", "options":["als","da","wenn"], "answer":0},
+        {"label":"7", "options":["jetzigen","kommenden","letzten"], "answer":1},
+        {"label":"8", "options":["danach","darüber","dazu"], "answer":2},
+        {"label":"9", "options":["als","ebenso","oder"], "answer":0},
+        {"label":"10", "options":["einen","einfach","einzig"], "answer":1}
+    ]
+},
+{
+    "text": "Liebe Ida,\nnun ist es schon drei Monate her, dass ich nach Frankfurt gezogen bin. Es hat ziemlich lange gedauert, bis ich mich hier eingelebt habe. Am Anfang hatte ich mich auch gar nicht (1) die neue Stelle und das Leben in der Stadt gefreut. Dass ich mich für meine neue Arbeitsstelle umgezogen war, hatte mich eine Zeitlang sogar ein bisschen geärgert. Ich (2) ja auch täglich mit dem Zug fahren können, statt mir eine Wohnung in der Nähe der Firma zu suchen. Zuerst habe ich (3) in meiner neuen Wohnung auch gar nicht richtig wohlgefühlt. Aber nachdem ich meine Umzugskartons (4), konnte ich endlich die Stadt richtig erkunden. Seit einiger Zeit gefällt es mir in Frankfurt nun richtig gut. Das liegt vor allem (5) dass ich eine neue Freundin gefunden habe. Annabelle wohnt in derselben Straße wie ich und wir haben uns auf einem Flohmarkt in unserem Stadtviertel kennengelernt. Sie hat dort ihre alten Bücher verkauft. Als wir (6) ins Gespräch kamen, haben wir festgestellt, dass wir ähnliche Interessen und Hobbys teilen: Sie mag ebenfalls ausgefallene Mode und moderne Kunst und wir gehen nun regelmäßig zusammen ins Schwimmbad. Mein Leben sieht nun also ganz anders aus (7) noch vor drei Monaten. Mit meiner neuen Stelle bin ich auch zufrieden, (8) ich oft Überstunden machen muss. Dafür herrscht jedoch ein angenehmes Betriebsklima (9) uns in der Abteilung. Jetzt habe ich viel von mir erzählt, aber Dich noch gar nicht gefragt, wie es Dir (10) geht. Gibt es etwas Neues bei Dir? Ich freue mich auf Deine nächste Mail!",
+    "questions": [
+        {"label":"1", "options":["an","auf","wegen"], "answer":1},
+        {"label":"2", "options":["habe","hätte","würde"], "answer":1},
+        {"label":"3", "options":["dich","uns","mich"], "answer":2},
+        {"label":"4", "options":["ausgepakt habe","ausgepackt hatte","auspakte"], "answer":1},
+        {"label":"5", "options":["daran","darauf","darin"], "answer":0},
+        {"label":"6", "options":["einander","gegeneinander","miteinander"], "answer":2},
+        {"label":"7", "options":["als","denn","wenn"], "answer":0},
+        {"label":"8", "options":["obwohl","trotzdem","während"], "answer":0},
+        {"label":"9", "options":["bei","mit","zu"], "answer":0},
+        {"label":"10", "options":["eigentlich","hoffentlich","sichererlich"], "answer":0}
+    ]
+},
+{
+    "text": "Liebe Andrea\nvielen Dank für deine Nachricht. Entschuldige bitte, dass ich (1) jetzt antworte, aber ich konnte gestern meinen Laptop nicht verwenden. Ich hatte ihn zu Peter gebracht, damit er mir ein neues Betriebssystem installiert. Jetzt funktioniert alles (2), so dass ich endlich meine Fotos sortieren konnte. Peter und ich haben uns die Fotos von deinem letzten Besuch hier angesehen. Es war so lustig, du musst bald wieder mal (3) uns kommen. Nun zu deiner Nachricht: Du suchst also einen Sommerjob im Bereich Touristik und wolltest wissen, ob ich einen Tipp für dich habe. Ich habe mich hier ein wenig umgehört, (4) du bist ziemlich spät dran mit deiner Suche. Nur das Hotel \"Seeblick\" sucht noch jemanden für die Rezeption. Man braucht keine (5) Berufserfahrung; nur Englisch ist zwingende Voraussetzung, eine (6) Fremdsprache wäre noch besser. Das wäre für Juli und August, fünf Tage in der Woche. Du musst dich allerdings sehr bald (7), am besten noch heute. Die Kontaktperson findest du auf der Webseite des Hotels. (8) kenne ich die Hotelbesitzer nicht persönlich, sonst hätte ich mich natürlich sofort für dich eingesetzt. Ich werde (9) wieder im Kinder-Feriencamp arbeiten. Eigentlich wollte ich dieses Jahr ins Ausland, aber dann habe ich mich doch (10), hier zu bleiben. Meine Mutter hat sich noch nicht richtig von ihrer Operation erholt, und ich lasse sie ungern allein. Also bewirb dich gleich - es wäre toll, wenn wir uns im Sommer viel sehen könnten. Falls es nicht klappt, hoffe ich doch, dass du uns bald besuchen kommst.",
+    "questions": [
+        {"label":"1", "options":["erst","gleich","zuerst"], "answer":0},
+        {"label":"2", "options":["am besten","bestenfalls","bestens"], "answer":2},
+        {"label":"3", "options":["bei","mit","zu"], "answer":2},
+        {"label":"4", "options":["aber","denn","oder"], "answer":0},
+        {"label":"4m", "options":["fast","Bungefähr","ziemlich"], "answer":2},
+        {"label":"5", "options":["besondere","geringe","gute"], "answer":0},
+        {"label":"6", "options":["künftige","nächste","weitere"], "answer":2},
+        {"label":"7", "options":["anwerben","bewerben","umwerben"], "answer":1},
+        {"label":"8", "options":["Bedauerlich","Leider","schade"], "answer":1},
+        {"label":"8m", "options":["außerdem","damals","sonst"], "answer":2},
+        {"label":"9", "options":["deshalb","trotzdem","übrigens"], "answer":2},
+        {"label":"10", "options":["ausgemacht","beschlossen","entschieden"], "answer":2}
+    ]
+},
+{
+    "text": "Sehr geehrte Frau Szabo,\nvielen Dank für Ihr Interesse (1) unseren Deutschkursen. Anbei erhalten Sie das angeforderte Anmeldeformular, das Sie bitte ausgefüllt an uns zurückschicken. Mit der Anmeldung überweisen Sie bitte eine Anzahlung (2) von € 200,- auf unser Konto. Die Kontoverbindung finden Sie unten auf dem Anmeldeformular. (3) besserer Einschätzung Ihrer Vorkenntnisse haben wir einen Einstufungstest beigelegt. Wenn Sie die Testbögen ausfüllen und mit der Anmeldung an uns zurücksenden, helfen Sie uns bei der Kursplanung. Ein mündlicher Test wird sich am ersten Unterrichtstag in unserer Schule (4). Damit sind wir in der Lage, den für Sie angemessenen Kurs auszuwählen. Außerdem finden Sie in den Unterlagen einen Fragebogen (5) Ihrer Freizeitinteressen. Wir werden uns bemühen, Ihnen den Aufenthalt in Leipzig so angenehm (6) wie möglich zu gestalten. Schließlich füllen Sie bitte das grüne Unterkunftsblatt aus. Sie können wählen zwischen einem 3-Sterne-Hotel, (7) Privatunterkunft in einer deutschen Gastfamilie oder der Unterkunft in einem Studentenwohnheim. Letzteres ist nur in den Semesterferien der Universität - in der Regel vom 15.2. bis 15.4. und vom 15.7. bis 15.10. - möglich. Geben Sie bitte auch Ihre Verpflegungswünsche - Frühstück oder Halbpension - an. Beachten Sie aber, dass im Studentenwohnheim nur Selbstverpflegung möglich ist. (8) Ihre Anmeldung bei uns eingegangen ist, erhalten Sie eine Anmeldebestätigung und einen Stadtplan mit Wegbeschreibung, (9) Sie den Weg zu uns ohne Umstände finden. Die Adresse Ihrer Unterkunft erhalten Sie ca. 2 Wochen vor Kursbeginn. (10) weitere Fragen steht Ihnen unser Sekretariat gerne montags bis freitags von 8 bis 18 Uhr zur Verfügung.",
+    "questions": [
+        {"label":"1", "options":["an","bei","in"], "answer":0},
+        {"label":"2", "options":["in Betrag","in Höhe","in Summe"], "answer":1},
+        {"label":"3", "options":["für","zur","Zwecks"], "answer":2},
+        {"label":"4", "options":["angeschlossen","anschließen","anschließen an"], "answer":1},
+        {"label":"5", "options":["anlässlich","bezüglich","mittels"], "answer":1},
+        {"label":"6", "options":["als","wenn","wie"], "answer":2},
+        {"label":"7", "options":["ein","einem","einer"], "answer":2},
+        {"label":"8", "options":["Sobald","Sofort","Sooft"], "answer":0},
+        {"label":"9", "options":["dafür","damit","dazu"], "answer":1},
+        {"label":"10", "options":["bei","für","zu"], "answer":1}
+    ]
+},
+{
+    "text": "Sehr geehrte Frau Szabo, vielen Dank für Ihr Interesse an unseren Deutschkursen. (1) erhalten Sie das angeforderte Anmeldeformular, das Sie bitte ausgefüllt an uns zurückschicken. Mit der Anmeldung überweisen Sie bitte eine Anzahlung (2) von € 200,- auf unser Konto. Die Kontoverbindung finden Sie unten auf dem Anmeldeformular. (3) genaueren Einschätzung Ihrer Vorkenntnisse haben wir einen Einstufungstest beigelegt. Wenn Sie die Testbögen ausfüllen und mit der Anmeldung an uns zurücksenden, helfen Sie uns bei der Kursplanung. Ein mündlicher Test wird sich am ersten Unterrichtstag in unserer Schule (4) stattfinden. Damit sind wir in der Lage, den für Sie angemessenen Kurs auszuwählen. Außerdem finden Sie in den Unterlagen einen Fragebogen (5) Ihrer Freizeitinteressen, denn wir werden uns bemühen, Ihnen den Aufenthalt in Leipzig (6) möglichst angenehm zu gestalten. Schließlich füllen Sie bitte das grüne Unterkunftsblatt aus. Sie können wählen zwischen einem 3-Sterne-Hotel, (7) Privatunterkunft in einer deutschen Gastfamilie oder der Unterkunft in einem Studentenwohnheim. Letzteres ist nur in den Semesterferien der Universität - in der Regel vom 15.2. bis 15.4. und vom 15.7. bis 15.10. - möglich. Geben Sie bitte auch Ihre Verpflegungswünsche - Frühstück oder Halbpension - an. Beachten Sie aber, dass im Studentenwohnheim nur Selbstverpflegung möglich ist. (8) Ihre Anmeldung bei uns eingegangen ist, erhalten Sie eine Anmeldebestätigung und einen Stadtplan mit Wegbeschreibung. (9) Sie den Weg zu uns ohne Umstände finden. Die Adresse Ihrer Unterkunft erhalten Sie ca. 2 Wochen vor Kursbeginn. (10) weitere Fragen steht Ihnen unser Sekretariat gerne montags bis freitags von 8 bis 18 Uhr zur Verfügung.",
+    "questions": [
+        {"label":"1", "options":["anbei","dabei","vorbei"], "answer":0},
+        {"label":"2", "options":["in Betrag","in Höhe","in Summe"], "answer":1},
+        {"label":"3", "options":["für","zur","Zweck"], "answer":2},
+        {"label":"4", "options":["durchführen","stattfinden","veranstalten"], "answer":1},
+        {"label":"5", "options":["anlässlich","bezüglich","mittels"], "answer":1},
+        {"label":"6", "options":["möglich","möglichrweise","möglichst"], "answer":2},
+        {"label":"7", "options":["ein","einem","einer"], "answer":2},
+        {"label":"8", "options":["Sobald","Sofort","Sooft"], "answer":0},
+        {"label":"9", "options":["dafür","damit","dazu"], "answer":1},
+        {"label":"10", "options":["bei","für","zu"], "answer":1}
+    ]
+},
+{
+    "text": "Liebe Clara, aus Lyon sende ich dir herzliche Grüße! Ich sitze gerade in einem gemütlichen, aber ziemlich vollen Bistro in der Altstadt und genieße meinen Urlaub. Nun ist es ja schon einige Monate her, dass wir zuletzt -(1)- gehört haben. Ich hoffe, es geht dir gut! Zurzeit mache ich eine Rundreise -(2)- Europa, die ich übrigens schon lange geplant hatte. -(3)- du weißt, habe ich in den letzten zwei Jahren sehr viel gearbeitet und konnte mir nur selten freinehmen. Nach dem ganzen Stress musste ich unbedingt mal eine längere Pause einlegen. Dank meiner gesammelten Überstunden kann ich nun acht Wochen Urlaub am Stück machen. Mein Chef -(4)- zuerst nicht gerade von dieser Idee begeistert, aber am Ende konnte ich ihn doch überzeugen. In den Sommermonaten ist -(5)- in der Firma ohnehin etwas ruhiger. Nun klappere ich nach und nach alle Städte ab, die auf der Liste meiner Traumziele stehen. Ich bin nur mit dem Zug oder Bus unterwegs, denn ich fliege ja nicht sehr gerne. Meine -(6)- Station war Amsterdam, dann ging es über Brüssel nach Lyon und bald werde ich weiter Richtung Süden reisen. Der Büroalltag fehlt mir wirklich überhaupt nicht. Ich möchte gar nicht -(7)- denken, dass ich irgendwann wieder an den Schreibtisch zurück -(8)-. In den letzten Tagen kam -(9)- manchmal der Gedanke, dass ich nach meiner Rückkehr auch etwas ganz Neues anfangen -(10)-. Ich wünsche dir einen schönen Sommer! Herzliche Grüße und bis bald",
+    "questions": [
+        {"label":"1", "options":["miteinander","voneinander","zueinander"], "answer":1},
+        {"label":"2", "options":["durch","über","in"], "answer":0},
+        {"label":"3", "options":["Als","Wie","Wenn"], "answer":1},
+        {"label":"4", "options":["war","würde","wurde"], "answer":0},
+        {"label":"5", "options":["es","er","man"], "answer":0},
+        {"label":"6", "options":["erste","ersten","erst"], "answer":0},
+        {"label":"7", "options":["daran","darüber","davon"], "answer":0},
+        {"label":"8", "options":["kann","mag","muss"], "answer":2},
+        {"label":"9", "options":["bei","in","mir"], "answer":2},
+        {"label":"10", "options":["bräuchte","dürfte","könnte"], "answer":2}
+    ]
+},
+{
+    "text": "Liebe Paola, vielen Dank für deine Nachricht und die vielen schönen Fotos. Eure Laura ist wirklich niedlich! Ich hoffe, dass wir (1) Bald kennenlernen. Aber ich weiß, wie anstrengend die erste Zeit mit einem Baby sein kann.(2) Warten wir lieber noch etwas, bevor wir euch besuchen. Sagt uns einfach Bescheid, (3)euch ein Treffen lieb wäre. Eine kleine Überraschung für eure Laura steht (4) jeden Fall bereit. Bei uns gibt es auch einige Veränderungen. Elijah ist diesen Herbst eingeschult worden. Er Kommt mit allem gut zurecht und hat auch schon Freundschaften geschlossen. Lea geht nun in den Kindergarten. (5) diesem Jahr sind hier im Ort Grundschule und Kindergarten in demselben Gebäudekomplex untergebracht. Das kommt uns sehr gelegen. Nun ist es vormittags sehr still bei uns im Haus, Ich überlege mir, (6) Ich nicht wieder anfangen soll, halbtags zu arbeiten. In meinen alten Beruf als Krankenschwester möchte ich aber nicht zurück, denn ich kann mir gar nicht (7), wie ich den Schichtdienst im Krankenhaus und die Kinderbetreuung unter einen Hut bringen soll. Wahrscheinlich bewerbe ich mich bei einer Arztpraxis oder der Verwaltung einer Krankenkasse. Was hältst du (8)? Fällt dir vielleicht eine Tätigkeit ein, bei der meine Ausbildung (9)Krankenschwester von Vorteil wäre? Wie dem auch (10) -ich wünsche euch viel Glück und Freude mit eurem Baby. Wenn Du irgendwelche Tipps brauchst, kannst du mich jederzeit anrufen. Im Anhang schicke ich dir ein paar Fotos vom Schulanfang. Ich freue mich schon darauf, euch bald wiederzusehen.",
+    "questions": [
+        {"label":"1", "options":["ihr","Sie","sie"], "answer":2},
+        {"label":"2", "options":["deshalb","obwohl","trotzdem"], "answer":0},
+        {"label":"3", "options":["bis","dann","wann"], "answer":2},
+        {"label":"4", "options":["auf","im","in"], "answer":0},
+        {"label":"5", "options":["seit","vom","zum"], "answer":0},
+        {"label":"6", "options":["ob","obwohl","ohnehin"], "answer":0},
+        {"label":"7", "options":["verstellen","vorstellen","zustellen"], "answer":1},
+        {"label":"8", "options":["dafür","damit","davon"], "answer":2},
+        {"label":"9", "options":["als","wie","zu"], "answer":0},
+        {"label":"10", "options":["hätte","sei","wäre"], "answer":1}
+    ]
+},
+{
+    "text": "Liebe Jutta, schon so lange habe ich dir nicht geschrieben, ich hatte aber_1_einen triftigen Grund - Ich habe das Schreiben_2_ meiner Krankheit vernachlässigt. Ich hatte fürchterliche Rücken - und Kreuzschmerzen, ich habe aber die richtige Untersuchung immer wieder _3_ • Ich habe immer nur einige Medikamente eingenommen, die für kurze Zeit zwar geholfen haben, aber die Schmerzen kamen immer zurück. Schließlich konnte ich _4_richtig schlafen und mich so natürlich auch bei der Arbeit nicht konzentrieren. Mein Arzt hat mich ins Krankenhaus zu einigen Untersuchungen _5_ . Die sind anstrengend gewesen und haben ziemlich lange gedauert. Die Lage ist aber nicht so schlimm. Da ich zu viel bei der Arbeit sitze und dazu noch ein paar Kilo_6_habe, ist meine Wirbelsäule belastet. Zum Glück muss ich aber nicht operiert werden. Ich gehe jetzt einige Monate lang _7_Behandlung . Einige Behandlungen sind schon _8_mir und sie scheinen wirksam zu sein. Ich hoffe, dass sich mein Zustand auch weiterhin verbessern wird. Dann werde ich bald wieder gesund. Früher war ich bei einem Naturheilpraktiker, der _9_ auch geraten hat, mich mehr zu bewegen. Ich glaube, es ist höchste Zeit, damit anzufangen. So könnte ich wenigstens auch etwas abnehmen, was mir _10_ schaden würde. So weit für heute, schreib mir bald. Herzliche Grüße deine Anna",
+    "questions": [
+        {"label":"1", "options":["darauf","dafür","dazu"], "answer":1},
+        {"label":"2", "options":["statt","wegen","während"], "answer":1},
+        {"label":"3", "options":["verschieben","verschiebten","verschoben"], "answer":2},
+        {"label":"4", "options":["nicht mehr","sogar nicht","noch nicht"], "answer":0},
+        {"label":"5", "options":["geschicken","eingewiesen","nachgewiesen"], "answer":1},
+        {"label":"6", "options":["Ubergewicht","Gleichgewicht","Gleichgültigkeit"], "answer":0},
+        {"label":"7", "options":["zur","auf","für"], "answer":0},
+        {"label":"8", "options":["über","vor","hinter"], "answer":2},
+        {"label":"9", "options":["vor allem","unter anderem","auf alle Falle"], "answer":1},
+        {"label":"10", "options":["eigentlich","überhaupt","gar nicht"], "answer":2}
+    ]
+},
+{
+    "text": "Lieber David, was für eine schöne Überraschung, dass Du nach Deutschland kommst. Und (1) schöner ist es, dass Du uns besuchen willst, (2) Du in München zu tun hast und wir in Köln wohnen, was ja nicht so nah ist. Du bist jederzeit herzlich willkommen. Wir können für Dich ein interessantes Wochenende organisieren. Du kannst Dir den Kölner Dom (3) und noch ein paar andere Sehenswürdigkeiten. Und natürlich (4) wir genug Zeit für Gespräche haben. Die Briefe, die wir sonst schreiben, können persönliche Gespräche ja nicht ersetzen. Mach dir keine Sorgen über Deinen Ausflug nach Köln. Schreib uns kurz, an welchem Tag und um welche Uhrzeit Du am Hauptbahnhof (5) . Wir holen Dich dort mit dem Auto ab, so dass Du Dir keine Gedanken über Bus und Straßenbahn machen musst. Warte einfach am Bahnsteig auf uns, (6) wir uns verspäten sollten. Zu Hause erwartet Dich ein Gästezimmer. Es ist das Zimmer unseres Sohnes, der schon seit Jahren eine eigene Wohnung hat. Wir benutzen es (7) für ihn, wenn er zu Besuch kommt, aber auch für andere Gäste. Es wird Dir bestimmt gefallen. Wir können dann alte Erinnerungen (8) . Wir haben sehr viele Fotos gemacht, (9) wir bei Dir zu Besuch waren. Kaum zu glauben, dass inzwischen schon drei Jahre vergangen sind. Es ist in dieser Zeit viel geschehen; aber (10) Dich überraschen... Wir wünschen Dir eine gute Reise und freuen uns auf Deinen Besuch.",
+    "questions": [
+        {"label":"1", "options":["ganz","noch","zwar"], "answer":1},
+        {"label":"2", "options":["jedoch","obwohl","trotzdem"], "answer":1},
+        {"label":"3", "options":["anschauen","überschauen","vorschauen"], "answer":0},
+        {"label":"4", "options":["konnten","Sollten","wollen"], "answer":1},
+        {"label":"5", "options":["ankommen wirst","anzukommen wirst","wirst ankommen"], "answer":0},
+        {"label":"6", "options":["falls","für den fall","im fall"], "answer":0},
+        {"label":"7", "options":["neulich","seitdem","vormals"], "answer":1},
+        {"label":"8", "options":["auffrischen","aufholen","aufsparen"], "answer":0},
+        {"label":"9", "options":["als","wann","wo"], "answer":0},
+        {"label":"10", "options":["geh","komm","lass"], "answer":2}
+    ]
+},
+{
+    "text": "Lieber Igor, vielen Dank für deine Nachricht, (1) die ich mich sehr gefreut habe. Es ist echt eine tolle Idee im Sommer gemeinsam zu verreisen! Aber möchtest du wirklich mit dem Auto fahren? Ich würde lieber die Bahn nehmen, denn das ist umweltfreundlicher und (2) noch billiger. Momentan bin ich nämlich mal wieder etwas knapp bei Kasse. Wir könnten doch eine Interrail-Tour machen. Mit einem Global Pass können wir in 30 Europäischen Ländern Zug (3) und zwar wann und wohin auch immer - allerdings nicht bei uns in Deutschland. Hier müssen wir extra zahlen. Aber wir haben es ja von mir aus nicht allzu weit bis zur Grenze. (4) wir noch keine 26 Jahre alt sind, können wir den Pass ausgesprochen günstig bekommen. Der Preis hängt (5) ab, wie lange wir unterwegs sein wollen. Wenn du lieber nur ein einziges Land bereisen möchtest, schlage ich vor, nach Frankreich zu fahren. Dann nämlich würden wir für ein Interrail-Ticket sogar noch weniger zahlen. Ich habe auch schon mit meiner Tante in Marseilles (6) und sie hat gleich vorgeschlagen, (7) wir einige Tage bei ihr verbringen. Meine Cousins Jérôme und Matthieu, die in Paris studieren, haben Semesterferien und werden auch dort sein. Die beiden würden (8) freuen, mit uns um die Häuser zu ziehen, und könnten uns sicherlich die angesagtesten Clubs der Stadt zeigen. Wegen (9) Sprachkenntnisse brauchst du dir nicht den Kopf zu zerbrechen, denn die beiden sprechen ziemlich gut Deutsch. Was hältst du davon? Hast du noch andere Vorschläge? Ich freue mich (10) schon sehr auf unsere gemeinsame Reise.",
+    "questions": [
+        {"label":"1", "options":["mit","über","wegen"], "answer":1},
+        {"label":"2", "options":["außerdem","sonst","weiterhin"], "answer":0},
+        {"label":"3", "options":["fahren","kommen","nehmen"], "answer":0},
+        {"label":"4", "options":["da","darum","deshalb"], "answer":0},
+        {"label":"5", "options":["dadurch","damit","davon"], "answer":2},
+        {"label":"6", "options":["besprochen","gesprochen","versprochen"], "answer":1},
+        {"label":"7", "options":["als","dass","wenn"], "answer":1},
+        {"label":"8", "options":["euch","sich","uns"], "answer":1},
+        {"label":"9", "options":["das","der","die"], "answer":1},
+        {"label":"10", "options":["bestenfalls","jedenfalls","keinesfalls"], "answer":1}
+    ]
+},
+{
+    "text": "Liebe Lara, bitte verzeih mir, dass ich erst jetzt auf (1) Brief antworte. Ich hatte in den letzten Wochen praktisch keine freie Minute und kam einfach nicht dazu, dir zu schreiben. Jetzt aber tue ich es, (2) du wirklich tolle Neuigkeiten mitzuteilen hast. Schon immer hast du von großen Abenteuern und Reisen in die Ferne geträumt. Ich weiß (3) gut, wie wir uns als Gymnasiasten fremde Länder ausgemalt haben. Nun verschlägt es dich und deine Familie also nach Dubai - und du sagst unserem Land für einige Zeit Adieu. Ich weiß, dass mit dieser Versetzung für dich ein Traum in Erfüllung geht. (4) deinen Neubeginn wünschen Peter und ich dir alles Gute. Wir freuen uns auch sehr, dass ihr alle gesund und munter seid und hoffen, dass das so bleibt. Bei uns geht mehr oder weniger alles seinen gewohnten Gang. Robert gefällt es gut auf seiner (5) Stelle. Er muss sich einfach noch einarbeiten. Lorenz ist jetzt 15. Du weißt (6), was das heißt. Er hält sich für den Größten und macht uns viele Schwierigkeiten. Aber irgendwann geht auch das vorüber. Sandra ist jetzt auch schon in der dritten Klasse und bringt gute Noten nach Hause. (7) sind wir natürlich stolz. Es (8) schön, wenn wir uns vor deiner Abreise noch einmal treffen würden. Vielleicht findet ihr (9) der Umzugsvorbereitungen noch Zeit. Wie wäre es mit einem gemeinsamen Sonntagsbrunch in unserem Garten? Bitte melde dich doch, damit wir etwas abmachen (10).",
+    "questions": [
+        {"label":"1", "options":["dein","deine","deinen"], "answer":2},
+        {"label":"2", "options":["denn","obwohl","weil"], "answer":2},
+        {"label":"3", "options":["noch","schon","weiterhin"], "answer":0},
+        {"label":"4", "options":["für","vor","zu"], "answer":0},
+        {"label":"5", "options":["neue","neuen","neuer"], "answer":1},
+        {"label":"6", "options":["bloß","ja","mal"], "answer":1},
+        {"label":"7", "options":["damit","darauf","darüber"], "answer":2},
+        {"label":"8", "options":["ist","wäre","würde"], "answer":1},
+        {"label":"9", "options":["aufgrund","trotz","wegen"], "answer":1},
+        {"label":"10", "options":["können","könnten","konnten"], "answer":0}
+    ]
+},
+{
+    "text": "Liebe Lina, lieber Florian, nun sind wir schon einige Monate in unserer neuen Wohnung, und ihr habt uns noch immer nicht besucht. Ihr (1) doch endlich unser neues Heim und unsere kleine Stadt kennenlernen. Deshalb möchten wir euch (2) das verlängerte Wochenende Anfang Juni einladen. Wenn ihr am Donnerstagabend anreist, haben wir drei ganze Tage zur Verfügung. Wohnen könnt ihr natürlich (3) uns. Emma fährt im Juni in Urlaub, und sie überlässt euch gern ihr Zimmer. Die Stadt Steyr hat (4) zu bieten. Wir können eine Führung durch die historische Altstadt machen, die romantischen Innenhöfe besichtigen und auf (5) Turm der Stadtpfarrkirche steigen. Da geht es über 228 Stufen 60 Meter hinauf. Bei einem längeren Rundgang (6) auch die wunderbare Schlossbibliothek und das Tapetenzimmer zu besichtigen. Besonders interessant ist die Runde durch den Wehrgraten, (7) man an den alten Bauten den Wandel der Industrie nachvollziehen kann, (8) erfährt man alles über die Eisenindustrie, die den Reichtum der Stadt begründet hat. Außerdem finden an (9) Wochenende die jährlichen Literaturtage statt. Bei dieser Veranstaltung präsentieren zeitgenössische Autorinnen und Autoren ihre Neuerscheinungen. Die Lesungen finden zum Großteil in den prächtigen Arkadenhöfen statt. Die Stimmung dort ist wirklich eine ganz besondere. Lina, das wäre doch was für dich, oder? Auch die Umgebung kann (10) sehen lassen. Praktisch vor den Toren der Stadt beginnt der Nationalpark Kalkalpen. Dort kann man wunderbar wandern und Rad fahren. Ihr könnt in der Stadt auch Räder ausleihen. Wir hoffen sehr, dass ihr noch keine Pläne für das Wochenende habt und zu uns kommen könnt. Viele liebe Grüße und hoffentlich bis bald!",
+    "questions": [
+        {"label":"1", "options":["dürft","könnt","sollt"], "answer":2},
+        {"label":"2", "options":["an","für","in"], "answer":1},
+        {"label":"3", "options":["bei","unter","zu"], "answer":0},
+        {"label":"4", "options":["einige","einigen","einiges"], "answer":2},
+        {"label":"5", "options":["dem","den","der"], "answer":1},
+        {"label":"6", "options":["ist","sind","waren"], "answer":1},
+        {"label":"7", "options":["wann","wie","wo"], "answer":2},
+        {"label":"8", "options":["dabei","daneben","darin"], "answer":0},
+        {"label":"9", "options":["dies","diesem","dieses"], "answer":1},
+        {"label":"10", "options":["man","sich","sie"], "answer":1}
+    ]
+},
+{
+    "text": "Liebe Maria liber Timur.herzlich Dank für die Einladung zu eurem Hoch zeitfesfest nachdem wir gestren aus dem Urlaub zurükgekommen (1) haben wir eure Brief und die einladungskarte im Briefkasten entdeckt (2) gibt es nicht veil zu überlegen Natürlich kommen wir sehr generl wir freun uns sehr (3) euch dass ihr nun endlich diesen schritt wagt.Es ist eine geniale idee (4)in der Türkay (4) in Östreich zu feiern .so können alle freunde und (5)dabei sein wir hoffen dass wir einige (6) alten frende wiedrsehen werden. Ihr habt geschrieben dass Timurs Eltern und seine Schwestern auch in Österreich sein werden Endich lernen wir auch Timurs Famillie kennen und wie schön. dass ihr in Marias Heimatdorf im Mühlviertel felertl Wir erinnern uns noch oft an die langen Partynacht die wir dort (7) jugendliche gemeinsam verbracht haben nun überlegen wir (8) wir nicht gleich ein Hotelzimmer für einige Tage buchen sollten Ihr habt ja sicher mit den Besitzungen alle Hände voll zu (9) Dann können wir am Freitag wandern gehen. Am Samstag ist dann euer Fest und am Sonntag (10) wir die Gelegenheit vor der Abreise noch gemütlich zusammen zu frühstücken in welchem Hotel habt ihr eure Verwandten untergebracht? Seid ihr auch in einem Hotel, oder übernachtet ihr bei deinen Eltern, Maria? Nun, das können wir alles noch später besprochen Vorerst freuen wir uns einfach nur auf euch und eure fest. Noch einmal viele Dank für die Einladung und bis bald!",
+    "questions": [
+        {"label":"1", "options":["seine","sind","waren"], "answer":2},
+        {"label":"2", "options":["da","das","dass"], "answer":0},
+        {"label":"3", "options":["an","auf","für"], "answer":2},
+        {"label":"4", "options":["je---desto","sowol--- als auch","weder---noch"], "answer":1},
+        {"label":"5", "options":["verwandte","verwandeten","verwandter"], "answer":1},
+        {"label":"6", "options":["unsere","unseren","unserer"], "answer":2},
+        {"label":"7", "options":["als","für","wie"], "answer":0},
+        {"label":"8", "options":["dass","falls","ob"], "answer":2},
+        {"label":"9", "options":["bereten","machen","tun"], "answer":2},
+        {"label":"10", "options":["hätten","könnten","sollten"], "answer":0}
+    ]
+},
+{
+
+    "text": "Sehr geehrter Herr Martini, vielen Dank für Ihre Anfrage vom 16. Juni (1)der Studienreise Ihrer Schulklasse nach Frankfurt am Main im (2)Oktober. Die  nterkunft bei deutschen Gastfamilien ist prinzipiell möglich. Die Familien werden von uns sorgfältig (3)strengen Kriterien ausgewählt, die Sie in der beiliegenden Informationsbroschüre auf den Seiten 15 bis 17 finden. Pro Gastfamilie können ein oder zwei Schülerinnen bzw. Schüler untergebracht werden. Unsere Gastfamilien (4) Halbpension, d. h. in der Regel Frühstück und Äbendessen, an. Alle Familien wohnen im näheren Umkreis der Schule, (5)der Weg von der Unterkunft zum Unterricht innerhalb von maximal 10 Minuten zu Fuß zurückgelegt werden kann. Zweimal pro Woche ist die Teilnahme am Schulunterricht Ihrer Partnerschule in Frankfurt, der Heinrich-Böll-Schule, in den Fächern Geografie, Kunst und Deutsch vorgesehen. Die Unterrichtssprache ist Deutsch.(6)Schülerinnen und Schülern der Partnerschule wird das Freizeit- und Kulturprogramm durchgeführt. Dazu gehört z. B.  (7)der Gemäldegalerie Städel, des Museums für Kunsthandwerk und des Deutschen Postmuseums. Auch ein Besuch beim Hessischen Rundfunk (8) Jeweils dienstags und freitags werden Kulturabende veranstaltet, an denen die verschiedenen Aspekte und Unterschiede der deutschen und der italienischen Kultur (9)werden sollen. Weitere Informationen finden Sie in der beiliegenden Broschüre. Wir hoffen, dass Sie und Ihre Klasse einen erlebnisreichen und unvergesslichen Aufenthalt in Frankfurt (10) werden. Bei weiteren Fragen setzen Sie sich bitte mit uns in Verbindung. Mit freundlichen Grüßen",
+    "questions": [
+        {"label":"1", "options":["an","von","zu"], "answer":2},
+        {"label":"2", "options":["ankommenden","gekommenen","kommenden"], "answer":2},
+        {"label":"3", "options":["aus","mit ","nach"], "answer":2},
+        {"label":"4", "options":["bieten","fordern","nehmen"], "answer":0},
+        {"label":"5", "options":["so dass","weil","wenn"], "answer":0},
+        {"label":"6", "options":["Gemeinsam mit ","Verbunden von ","Zusammen neben"], "answer":0},
+        {"label":"7", "options":["die Ansicht","der Besuch","das Betrachten"], "answer":1},
+        {"label":"8", "options":["hat geplant ","ist geplant ","wird geplant haben"], "answer":1},
+        {"label":"9", "options":["besprochen","gesprochen","versprochen"], "answer":0},
+        {"label":"10", "options":["haben","hatten","hätten"], "answer":0}
+    ]
+    },
+    {
+
+    "text": "Liebe Vanessa, danke für deinen Brief, (1)ich mich total gefreut habe. Du fragst dich bestimmt, warum du schon drei Wochen (2) von mir gehört hast, oder? Ich war mit meiner Gastfamilie in Urlaub. Vierzehn Tage im Allgäu - mit den Kindern Stefan, Anja und Karina. Du weißt (3) selbst, wie anstrengend es ist, wenn man ständig drei kleine Kinder um sich hat, die pausenlos unterhalten werden möchten. (4) ist es übrigens in deiner Au-pair-Familie mit der kleinen Dorothea? Das Allgäu liegt in Süddeutschland am Fuß (5) Alpen. Wir sind fast jeden Tag gewandert, immer bergauf und bergab. Den Kindern und mir haben ständig die Füße weh (6) , doch meine Gasteltern, Herr und Frau Zimmer, sind einfach immer weitergelaufen. Die Deutschen lieben es nämlich, in der Natur spazieren zu gehen, bis sie vor Erschöpfung (7) . Unterwegs haben wir manchmal an einer sogenannten Wassertretstelle Rast gemacht. Das sind kleine Wasserbecken, die oft mitten im Wald liegen. Durch das Becken fließt ein Bach mit eiskaltem Wasser, das direkt von den Bergen kommt. Stell (8) vor, alle Wanderer ziehen ihre Schuhe und Strümpfe aus und laufen durch dieses Becken. Als ich meinen Fuß in dieses kalte Wasser getaucht hatte, dachte ich, dass ich gleich sterben muss. Am Wochenende haben wir alle Minigolf gespielt. Dabei muss ein Golfball mit einem Schläger in ein etwa Zehn Meter entferntes Loch geschlagen werden. Aber vor dem Loch gibt es (9) Menge Hindernisse: Gräben, kleine Hügel, Tunnel. Der Spieler, dessen Ball mit den wenigsten Schlägen im Loch ankommt, hat gewonnen. Die Kinder wollten gar nicht mehr (10) aufhören. Jetzt muss ich aber Schluss machen, die Kinder warten auf ihr Abendessen, denn die Zimmers sind heute nicht da: Sie wandern mal wieder.",
+    "questions": [
+        {"label":"1", "options":["an den","auf dem","über den"], "answer":2},
+        {"label":"2", "options":["nichts mehr"," noch nicht","keines"], "answer":0},
+        {"label":"3", "options":["doch","eben ","überhaupt"], "answer":0},
+        {"label":"4", "options":["wann","was","wie"], "answer":2},
+        {"label":"5", "options":["der","die","von"], "answer":0},
+        {"label":"6", "options":["gelaufen ","getan ","geworden"], "answer":1},
+        {"label":"7", "options":["durchfallen","umfallen","wegfallen"], "answer":1},
+        {"label":"8", "options":["dich ","dir ","mal"], "answer":1},
+        {"label":"9", "options":["alle","ganze","jede"], "answer":2},
+        {"label":"10", "options":["dabei","damit","davon"], "answer":1}
+    ]
+    },
+    {
+
+    "text": "Betreff: Grüße (1) Berlin Hallo Leon, vielen Dank für deine letzte Mail aus Peking! Du arbeitest ja jetzt schon seit einem halben Jahr in China - unglaublich, wie schnell die Zeit vergeht. Leider hatte ich in den letzten drei Wochen keine Zeit, dir zu antworten, weil ich viel zu tun hatte.Aber jetzt berichte ich dir,(2) alles los war. Also, im Büro haben wir derzeit viel Stress, (3)drei Kollegen im Urlaub sind und eine weitere Kollegin seit zwei Wochen krank ist. Jetzt müssen wir mit fünf Leuten die Arbeit erledigen, die sonst neun Leute machen. Ich weiß wirklich nicht, wer diese Urlaubsplanung gemacht hat. Hoffentlich (4)das in Zukunft besser organisiert. Abends waren Carmen und ich dann ein paarmal aus. Wir waren zum Beispiel bei einem Konzert von Belasco. Kennst du die Band? Eigentlich war ich an dem Abend ganz schön kaputt und ( 5 )am liebsten zuhause geblieben, aber ich hatte Carmen die Karten zum Geburtstag geschenkt. Da (6)ich ja schlecht auf dem Sofa sitzen bleiben! Im Nachhinein muss ich sagen: Ein Glück, dass wir zu dem Konzert gegangen sind, (7) es war einfach nur super! An den letzten beiden Wochenenden hatten wir dann auch noch Familienfeiern: Erst hatte meine  ältere Schwester Geburtstag und hat groß gefeiert, dann hat ein Cousin geheiratet und uns eingeladen, (8)war zwar schön, aber auch anstrengend. Ich bin froh, dass wir für die kommenden Wochenenden (9) keine Pläne haben. Das war's erst mal von mir. Melde dich doch wieder, ich freue mich (10) deine nächste E-Mail!",
+    "questions": [
+        {"label":"1", "options":["ab","aus","von"], "answer":1},
+        {"label":"2", "options":["wann"," was","wie"], "answer":1},
+        {"label":"3", "options":["da","indem ","obwohl"], "answer":0},
+        {"label":"4", "options":["ist","wird","würde"], "answer":1},
+        {"label":"5", "options":["bin","war","wäre"], "answer":2},
+        {"label":"6", "options":["konnte ","musste ","sollte"], "answer":0},
+        {"label":"7", "options":["aber","denn","sondern"], "answer":1},
+        {"label":"8", "options":["Beide ","Beiden ","Beides"], "answer":2},
+        {"label":"9", "options":["erst ","noch ","schon"], "answer":1},
+        {"label":"10", "options":["auf","für","über"], "answer":0}
+    ]
+    },
+     {
+
+    "text": "Liebe Karin, vielen Dank für deine letzte E-Mail! Ich habe mich wirklich sehr gefreut zu lesen, dass es dir in München so gut gefällt. Endlich kannst du auch das studieren, (1)du möchtest - das ist doch super! Wie ist es (2)so an der Uni dort? Hast du schon neue Leute kennengelernt? Und wie sieht deine Woche aus? Hast du viele Veranstaltungen? Musst du zuhause auch (3)viel lernen? Jobbst du eigentlich noch nebenbei? Du siehst, ich habe jede Menge Fragen an dich! Deshalb würde ich deine Einladung wirklich gerne (4) und dich demnächst in München besuchen kommen. Im Moment habe ich nocht nicht so viel Zeit, weil ich mich viel (5) Jonas kümmern muss - er ist ja erst sechs Monate alt - und Thomas leider keinen Urlaub nehmen kann. Aber (6)frei hat, komme ich mal für ein, zwei Tage zu dir. Ich bin ja so gespannt, wie du wohnst! In einer Wohngemeinschaft zu leben, ist bestimmt toll, (7) es mal Streit gibt. Aber du hast ja geschrieben, dass deine beiden Mitbewohnerinnen sehr nett sind und ihr euch alle gut versteht. Das freut mich wirklich (8) dich! Bei mir gibt es gar nicht viel Neues. Wir hatten (9)mal überlegt, in eine größere Wohnung zu ziehen, aber die Mieten sind ja hier in Köln recht hoch und wir (10)uns nicht viel zumuten - also bleiben wir lieber erst mal in dieser Wohnung. Umziehen kann man ja auch später noch.",
+    "questions": [
+        {"label":"1", "options":["das","was","welches"], "answer":1},
+        {"label":"2", "options":["denn"," doch","mal"], "answer":0},
+        {"label":"3", "options":["dazu","noch ","sogar"], "answer":1},
+        {"label":"4", "options":["abnehmen","annehmen","nehmen"], "answer":1},
+        {"label":"5", "options":["für","über","um"], "answer":2},
+        {"label":"6", "options":["bevor ","bis ","sobald"], "answer":2},
+        {"label":"7", "options":["wenn","auch wenn","wenn auch"], "answer":1},
+        {"label":"8", "options":["an ","für ","über"], "answer":1},
+        {"label":"9", "options":["demnächst ","neulich ","noch nicht"], "answer":1},
+        {"label":"10", "options":["müssen","sollen","wollen"], "answer":2}
+    ]
+    },
+
+
+    
+  
+];
+
+const container = document.getElementById('quiz-container');
+
+quizData.forEach((quiz) => {
+const div = document.createElement('div');
+div.classList.add('text-block');
+div.innerHTML = `<p>${quiz.text}</p>`;
+
+quiz.questions.forEach((q, qIdx) => {
+const qDiv = document.createElement('div');
+qDiv.classList.add('question');
+qDiv.innerHTML = `<div>Frage ${q.label}:</div>`;
+
+const optsDiv = document.createElement('div');
+optsDiv.classList.add('options');
+
+q.options.forEach((opt, optIdx) => {
+const optDiv = document.createElement('div');
+optDiv.classList.add('option');
+optDiv.innerHTML = `<span class="circle"></span> ${opt}`;
+optDiv.addEventListener('click', ()=> {
+optsDiv.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+optDiv.classList.add('selected');
+});
+optsDiv.appendChild(optDiv);
+});
+
+qDiv.appendChild(optsDiv);
+div.appendChild(qDiv);
+});
+
+const btn = document.createElement('button');
+btn.textContent = 'تصحيح';
+btn.addEventListener('click', ()=> {
+let score = 0;
+div.querySelectorAll('.question').forEach((qEl, qI) => {
+const selected = qEl.querySelector('.option.selected');
+if(selected){
+if(Array.from(qEl.querySelectorAll('.option')).indexOf(selected) === quiz.questions[qI].answer){
+selected.classList.add('correct');
+score += 1.5;
+} else {
+selected.classList.add('wrong');
+qEl.querySelectorAll('.option')[quiz.questions[qI].answer].classList.add('correct');
+}
+} else {
+qEl.querySelectorAll('.option')[quiz.questions[qI].answer].classList.add('correct');
+}
+});
+document.getElementById('total-score').textContent = `النقاط المجموع: ${score}`;
+});
+div.appendChild(btn);
+container.appendChild(div);
+});
+</script>
+
+</body>
+
+</html>
